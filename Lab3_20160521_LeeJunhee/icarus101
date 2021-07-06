@@ -1,0 +1,522 @@
+#! /c/iverilog/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 12;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_00FDF048 .scope module, "TEST_BENCH_MUL2b" "TEST_BENCH_MUL2b" 2 4;
+ .timescale -9 -12;
+P_00FF1EFC .param/l "SOLUTION_1" 2 11, C4<0000>;
+P_00FF1F10 .param/l "SOLUTION_10" 2 20, C4<1001>;
+P_00FF1F24 .param/l "SOLUTION_2" 2 12, C4<0001>;
+P_00FF1F38 .param/l "SOLUTION_3" 2 13, C4<0010>;
+P_00FF1F4C .param/l "SOLUTION_4" 2 14, C4<0011>;
+P_00FF1F60 .param/l "SOLUTION_5" 2 15, C4<0010>;
+P_00FF1F74 .param/l "SOLUTION_6" 2 16, C4<0100>;
+P_00FF1F88 .param/l "SOLUTION_7" 2 17, C4<0110>;
+P_00FF1F9C .param/l "SOLUTION_8" 2 18, C4<0011>;
+P_00FF1FB0 .param/l "SOLUTION_9" 2 19, C4<0110>;
+v01023B00_0 .var "in1", 1 0;
+v01024028_0 .var "in2", 1 0;
+v010241E0_0 .net "out", 3 0, v010237E8_0; 1 drivers
+v010240D8_0 .var "sol_cnt", 3 0;
+S_00FDEFC0 .scope module, "M_2b" "MUL_2b" 2 22, 3 2, S_00FDF048;
+ .timescale 0 0;
+v01023D68_0 .var "a1", 0 0;
+v01023738_0 .var "a2", 0 0;
+v01023688_0 .var "a3", 0 0;
+v01023E18_0 .var "a4", 0 0;
+v01023B58_0 .var "a5", 0 0;
+v010238F0_0 .var "b1", 0 0;
+v01023790_0 .var "b2", 0 0;
+v01023BB0_0 .var "b3", 0 0;
+v01023478_0 .var "b4", 0 0;
+v010236E0_0 .var "b5", 0 0;
+v010234D0_0 .var "cin1", 0 0;
+v010235D8_0 .var "cin2", 0 0;
+v01023C60_0 .var "cin3", 0 0;
+v01023CB8_0 .var "cin4", 0 0;
+v01023E70_0 .var "cin5", 0 0;
+v01023840_0 .net "cout1", 0 0, L_00FEC1E8; 1 drivers
+v01023898_0 .net "cout2", 0 0, L_00FEBC38; 1 drivers
+v01023EC8_0 .net "cout3", 0 0, L_010248A8; 1 drivers
+v01023D10_0 .net "cout4", 0 0, L_010246E8; 1 drivers
+v01023DC0_0 .net "cout5", 0 0, L_01024DD8; 1 drivers
+v01023F20_0 .net "in1", 1 0, v01023B00_0; 1 drivers
+v01023528_0 .var "in12", 2 0;
+v01023580_0 .net "in2", 1 0, v01024028_0; 1 drivers
+v01023630_0 .alias "out", 3 0, v010241E0_0;
+v010237E8_0 .var "out_R", 3 0;
+v01023948_0 .net "s1", 0 0, L_00FEBFB8; 1 drivers
+v010239A0_0 .net "s2", 0 0, L_00FEBC00; 1 drivers
+v010239F8_0 .net "s3", 0 0, L_01024838; 1 drivers
+v01023AA8_0 .net "s4", 0 0, L_010245D0; 1 drivers
+v01023A50_0 .net "s5", 0 0, L_01024B80; 1 drivers
+E_00FDAE08/0 .event edge, v01023580_0, v01023F20_0, v01023C08_0, v010232E0_0;
+E_00FDAE08/1 .event edge, v01023338_0, v01023180_0, v01023528_0, v01022CB0_0;
+E_00FDAE08/2 .event edge, v01022940_0, v01022998_0, v01022AA0_0, v01022578_0;
+E_00FDAE08/3 .event edge, v01022D60_0;
+E_00FDAE08 .event/or E_00FDAE08/0, E_00FDAE08/1, E_00FDAE08/2, E_00FDAE08/3;
+S_00FDE6B8 .scope module, "FA1" "FULL_ADDER_1b" 3 19, 4 3, S_00FDEFC0;
+ .timescale 0 0;
+L_00FEBFF0 .functor XOR 1, v01023D68_0, v010238F0_0, C4<0>, C4<0>;
+L_00FEBFB8 .functor XOR 1, L_00FEBFF0, v010234D0_0, C4<0>, C4<0>;
+L_00FEBDC0 .functor AND 1, v01023D68_0, v010238F0_0, C4<1>, C4<1>;
+L_00FEC220 .functor AND 1, v010238F0_0, v010234D0_0, C4<1>, C4<1>;
+L_00FEC178 .functor OR 1, L_00FEBDC0, L_00FEC220, C4<0>, C4<0>;
+L_00FEBC70 .functor AND 1, v01023D68_0, v010234D0_0, C4<1>, C4<1>;
+L_00FEC1E8 .functor OR 1, L_00FEC178, L_00FEBC70, C4<0>, C4<0>;
+v010233E8_0 .net *"_s0", 0 0, L_00FEBFF0; 1 drivers
+v01022F70_0 .net *"_s10", 0 0, L_00FEBC70; 1 drivers
+v01023390_0 .net *"_s4", 0 0, L_00FEBDC0; 1 drivers
+v01022FC8_0 .net *"_s6", 0 0, L_00FEC220; 1 drivers
+v01023020_0 .net *"_s8", 0 0, L_00FEC178; 1 drivers
+v01023230_0 .net "a", 0 0, v01023D68_0; 1 drivers
+v010230D0_0 .net "b", 0 0, v010238F0_0; 1 drivers
+v01023288_0 .net "cin", 0 0, v010234D0_0; 1 drivers
+v010232E0_0 .alias "cout", 0 0, v01023840_0;
+v01023C08_0 .alias "s", 0 0, v01023948_0;
+S_00FDE630 .scope module, "FA2" "FULL_ADDER_1b" 3 20, 4 3, S_00FDEFC0;
+ .timescale 0 0;
+L_00FEBDF8 .functor XOR 1, v01023738_0, v01023790_0, C4<0>, C4<0>;
+L_00FEBC00 .functor XOR 1, L_00FEBDF8, v010235D8_0, C4<0>, C4<0>;
+L_00FEBCA8 .functor AND 1, v01023738_0, v01023790_0, C4<1>, C4<1>;
+L_00FEBD50 .functor AND 1, v01023790_0, v010235D8_0, C4<1>, C4<1>;
+L_00FEBCE0 .functor OR 1, L_00FEBCA8, L_00FEBD50, C4<0>, C4<0>;
+L_00FEC258 .functor AND 1, v01023738_0, v010235D8_0, C4<1>, C4<1>;
+L_00FEBC38 .functor OR 1, L_00FEBCE0, L_00FEC258, C4<0>, C4<0>;
+v01022838_0 .net *"_s0", 0 0, L_00FEBDF8; 1 drivers
+v01022520_0 .net *"_s10", 0 0, L_00FEC258; 1 drivers
+v010225D0_0 .net *"_s4", 0 0, L_00FEBCA8; 1 drivers
+v01022680_0 .net *"_s6", 0 0, L_00FEBD50; 1 drivers
+v01022628_0 .net *"_s8", 0 0, L_00FEBCE0; 1 drivers
+v01023078_0 .net "a", 0 0, v01023738_0; 1 drivers
+v01023128_0 .net "b", 0 0, v01023790_0; 1 drivers
+v010231D8_0 .net "cin", 0 0, v010235D8_0; 1 drivers
+v01023180_0 .alias "cout", 0 0, v01023898_0;
+v01023338_0 .alias "s", 0 0, v010239A0_0;
+S_00FDF0D0 .scope module, "FA3" "FULL_ADDER_1b" 3 25, 4 3, S_00FDEFC0;
+ .timescale 0 0;
+L_01024528 .functor XOR 1, v01023688_0, v01023BB0_0, C4<0>, C4<0>;
+L_01024838 .functor XOR 1, L_01024528, v01023C60_0, C4<0>, C4<0>;
+L_01024B10 .functor AND 1, v01023688_0, v01023BB0_0, C4<1>, C4<1>;
+L_01024AA0 .functor AND 1, v01023BB0_0, v01023C60_0, C4<1>, C4<1>;
+L_010244F0 .functor OR 1, L_01024B10, L_01024AA0, C4<0>, C4<0>;
+L_01024AD8 .functor AND 1, v01023688_0, v01023C60_0, C4<1>, C4<1>;
+L_010248A8 .functor OR 1, L_010244F0, L_01024AD8, C4<0>, C4<0>;
+v01022730_0 .net *"_s0", 0 0, L_01024528; 1 drivers
+v01022E10_0 .net *"_s10", 0 0, L_01024AD8; 1 drivers
+v01022E68_0 .net *"_s4", 0 0, L_01024B10; 1 drivers
+v01022C00_0 .net *"_s6", 0 0, L_01024AA0; 1 drivers
+v01022A48_0 .net *"_s8", 0 0, L_010244F0; 1 drivers
+v01022C58_0 .net "a", 0 0, v01023688_0; 1 drivers
+v01022788_0 .net "b", 0 0, v01023BB0_0; 1 drivers
+v01022470_0 .net "cin", 0 0, v01023C60_0; 1 drivers
+v01022940_0 .alias "cout", 0 0, v01023EC8_0;
+v01022CB0_0 .alias "s", 0 0, v010239F8_0;
+S_00FDEC90 .scope module, "FA4" "FULL_ADDER_1b" 3 26, 4 3, S_00FDEFC0;
+ .timescale 0 0;
+L_01024678 .functor XOR 1, v01023E18_0, v01023478_0, C4<0>, C4<0>;
+L_010245D0 .functor XOR 1, L_01024678, v01023CB8_0, C4<0>, C4<0>;
+L_01024480 .functor AND 1, v01023E18_0, v01023478_0, C4<1>, C4<1>;
+L_01024720 .functor AND 1, v01023478_0, v01023CB8_0, C4<1>, C4<1>;
+L_01024758 .functor OR 1, L_01024480, L_01024720, C4<0>, C4<0>;
+L_010249F8 .functor AND 1, v01023E18_0, v01023CB8_0, C4<1>, C4<1>;
+L_010246E8 .functor OR 1, L_01024758, L_010249F8, C4<0>, C4<0>;
+v01022F18_0 .net *"_s0", 0 0, L_01024678; 1 drivers
+v01022DB8_0 .net *"_s10", 0 0, L_010249F8; 1 drivers
+v01022D08_0 .net *"_s4", 0 0, L_01024480; 1 drivers
+v01022EC0_0 .net *"_s6", 0 0, L_01024720; 1 drivers
+v010227E0_0 .net *"_s8", 0 0, L_01024758; 1 drivers
+v01022AF8_0 .net "a", 0 0, v01023E18_0; 1 drivers
+v01022BA8_0 .net "b", 0 0, v01023478_0; 1 drivers
+v010224C8_0 .net "cin", 0 0, v01023CB8_0; 1 drivers
+v01022AA0_0 .alias "cout", 0 0, v01023D10_0;
+v01022998_0 .alias "s", 0 0, v01023AA8_0;
+S_00FDEEB0 .scope module, "FA5" "FULL_ADDER_1b" 3 27, 4 3, S_00FDEFC0;
+ .timescale 0 0;
+L_010249C0 .functor XOR 1, v01023B58_0, v010236E0_0, C4<0>, C4<0>;
+L_01024B80 .functor XOR 1, L_010249C0, v01023E70_0, C4<0>, C4<0>;
+L_01024F28 .functor AND 1, v01023B58_0, v010236E0_0, C4<1>, C4<1>;
+L_01024EF0 .functor AND 1, v010236E0_0, v01023E70_0, C4<1>, C4<1>;
+L_010250B0 .functor OR 1, L_01024F28, L_01024EF0, C4<0>, C4<0>;
+L_01025238 .functor AND 1, v01023B58_0, v01023E70_0, C4<1>, C4<1>;
+L_01024DD8 .functor OR 1, L_010250B0, L_01025238, C4<0>, C4<0>;
+v00FD3F80_0 .net *"_s0", 0 0, L_010249C0; 1 drivers
+v00FD3C10_0 .net *"_s10", 0 0, L_01025238; 1 drivers
+v00FD3FD8_0 .net *"_s4", 0 0, L_01024F28; 1 drivers
+v01022B50_0 .net *"_s6", 0 0, L_01024EF0; 1 drivers
+v010226D8_0 .net *"_s8", 0 0, L_010250B0; 1 drivers
+v01022890_0 .net "a", 0 0, v01023B58_0; 1 drivers
+v010229F0_0 .net "b", 0 0, v010236E0_0; 1 drivers
+v010228E8_0 .net "cin", 0 0, v01023E70_0; 1 drivers
+v01022D60_0 .alias "cout", 0 0, v01023DC0_0;
+v01022578_0 .alias "s", 0 0, v01023A50_0;
+    .scope S_00FDEFC0;
+T_0 ;
+    %wait E_00FDAE08;
+    %load/v 8, v01023580_0, 2;
+    %cmpi/u 8, 0, 2;
+    %jmp/0xz  T_0.0, 4;
+    %set/v v010237E8_0, 0, 4;
+    %jmp T_0.1;
+T_0.0 ;
+    %load/v 8, v01023580_0, 2;
+    %cmpi/u 8, 1, 2;
+    %jmp/0xz  T_0.2, 4;
+    %load/v 8, v01023F20_0, 2;
+    %mov 10, 0, 2;
+    %set/v v010237E8_0, 8, 4;
+    %jmp T_0.3;
+T_0.2 ;
+    %load/v 8, v01023580_0, 2;
+    %cmpi/u 8, 2, 2;
+    %jmp/0xz  T_0.4, 4;
+    %load/v 8, v01023F20_0, 1; Only need 1 of 2 bits
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023D68_0, 8, 1;
+    %load/v 8, v01023F20_0, 1; Only need 1 of 2 bits
+; Save base=8 wid=1 in lookaside.
+    %set/v v010238F0_0, 8, 1;
+    %set/v v010234D0_0, 0, 1;
+    %load/v 8, v01023948_0, 1;
+    %ix/load 0, 0, 0;
+    %set/x0 v010237E8_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.6, 4;
+    %load/x1p 8, v01023F20_0, 1;
+    %jmp T_0.7;
+T_0.6 ;
+    %mov 8, 2, 1;
+T_0.7 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023738_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.8, 4;
+    %load/x1p 8, v01023F20_0, 1;
+    %jmp T_0.9;
+T_0.8 ;
+    %mov 8, 2, 1;
+T_0.9 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023790_0, 8, 1;
+    %load/v 8, v01023840_0, 1;
+    %set/v v010235D8_0, 8, 1;
+    %load/v 8, v010239A0_0, 1;
+    %ix/load 0, 1, 0;
+    %set/x0 v010237E8_0, 8, 1;
+    %load/v 8, v01023898_0, 1;
+    %ix/load 0, 2, 0;
+    %set/x0 v010237E8_0, 8, 1;
+    %jmp T_0.5;
+T_0.4 ;
+    %load/v 8, v01023F20_0, 1; Only need 1 of 2 bits
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023D68_0, 8, 1;
+    %load/v 8, v01023F20_0, 1; Only need 1 of 2 bits
+; Save base=8 wid=1 in lookaside.
+    %set/v v010238F0_0, 8, 1;
+    %set/v v010234D0_0, 0, 1;
+    %load/v 8, v01023948_0, 1;
+    %ix/load 0, 0, 0;
+    %set/x0 v01023528_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.10, 4;
+    %load/x1p 8, v01023F20_0, 1;
+    %jmp T_0.11;
+T_0.10 ;
+    %mov 8, 2, 1;
+T_0.11 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023738_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.12, 4;
+    %load/x1p 8, v01023F20_0, 1;
+    %jmp T_0.13;
+T_0.12 ;
+    %mov 8, 2, 1;
+T_0.13 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023790_0, 8, 1;
+    %load/v 8, v01023840_0, 1;
+    %set/v v010235D8_0, 8, 1;
+    %load/v 8, v010239A0_0, 1;
+    %ix/load 0, 1, 0;
+    %set/x0 v01023528_0, 8, 1;
+    %load/v 8, v01023898_0, 1;
+    %ix/load 0, 2, 0;
+    %set/x0 v01023528_0, 8, 1;
+    %load/v 8, v01023F20_0, 1; Only need 1 of 2 bits
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023688_0, 8, 1;
+    %load/v 8, v01023528_0, 1; Only need 1 of 3 bits
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023BB0_0, 8, 1;
+    %set/v v01023C60_0, 0, 1;
+    %load/v 8, v010239F8_0, 1;
+    %ix/load 0, 0, 0;
+    %set/x0 v010237E8_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.14, 4;
+    %load/x1p 8, v01023F20_0, 1;
+    %jmp T_0.15;
+T_0.14 ;
+    %mov 8, 2, 1;
+T_0.15 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023E18_0, 8, 1;
+    %ix/load 1, 1, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.16, 4;
+    %load/x1p 8, v01023528_0, 1;
+    %jmp T_0.17;
+T_0.16 ;
+    %mov 8, 2, 1;
+T_0.17 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v01023478_0, 8, 1;
+    %load/v 8, v01023EC8_0, 1;
+    %set/v v01023CB8_0, 8, 1;
+    %load/v 8, v01023AA8_0, 1;
+    %ix/load 0, 1, 0;
+    %set/x0 v010237E8_0, 8, 1;
+    %load/v 8, v01023D10_0, 1;
+    %set/v v01023B58_0, 8, 1;
+    %ix/load 1, 2, 0;
+    %mov 4, 0, 1;
+    %jmp/1 T_0.18, 4;
+    %load/x1p 8, v01023528_0, 1;
+    %jmp T_0.19;
+T_0.18 ;
+    %mov 8, 2, 1;
+T_0.19 ;
+; Save base=8 wid=1 in lookaside.
+    %set/v v010236E0_0, 8, 1;
+    %set/v v01023E70_0, 0, 1;
+    %load/v 8, v01023A50_0, 1;
+    %ix/load 0, 2, 0;
+    %set/x0 v010237E8_0, 8, 1;
+    %load/v 8, v01023DC0_0, 1;
+    %ix/load 0, 3, 0;
+    %set/x0 v010237E8_0, 8, 1;
+T_0.5 ;
+T_0.3 ;
+T_0.1 ;
+    %jmp T_0;
+    .thread T_0, $push;
+    .scope S_00FDF048;
+T_1 ;
+    %set/v v010240D8_0, 0, 4;
+    %set/v v01023B00_0, 0, 2;
+    %set/v v01024028_0, 0, 2;
+    %delay 10000, 0;
+    %vpi_call 2 30 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 0, 5;
+    %jmp/0xz  T_1.0, 4;
+    %vpi_call 2 33 "$display", "Case 1 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.1;
+T_1.0 ;
+    %vpi_call 2 37 "$display", "Case 1 is failed";
+T_1.1 ;
+    %movi 8, 1, 2;
+    %set/v v01023B00_0, 8, 2;
+    %movi 8, 1, 2;
+    %set/v v01024028_0, 8, 2;
+    %delay 10000, 0;
+    %vpi_call 2 43 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 1, 5;
+    %jmp/0xz  T_1.2, 4;
+    %vpi_call 2 46 "$display", "Case 2 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.3;
+T_1.2 ;
+    %vpi_call 2 50 "$display", "Case 2 is failed";
+T_1.3 ;
+    %movi 8, 1, 2;
+    %set/v v01023B00_0, 8, 2;
+    %movi 8, 2, 2;
+    %set/v v01024028_0, 8, 2;
+    %delay 10000, 0;
+    %vpi_call 2 56 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 2, 5;
+    %jmp/0xz  T_1.4, 4;
+    %vpi_call 2 59 "$display", "Case 3 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.5;
+T_1.4 ;
+    %vpi_call 2 63 "$display", "Case 3 is failed";
+T_1.5 ;
+    %movi 8, 1, 2;
+    %set/v v01023B00_0, 8, 2;
+    %set/v v01024028_0, 1, 2;
+    %delay 10000, 0;
+    %vpi_call 2 69 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 3, 5;
+    %jmp/0xz  T_1.6, 4;
+    %vpi_call 2 72 "$display", "Case 4 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.7;
+T_1.6 ;
+    %vpi_call 2 76 "$display", "Case 4 is failed";
+T_1.7 ;
+    %movi 8, 2, 2;
+    %set/v v01023B00_0, 8, 2;
+    %movi 8, 1, 2;
+    %set/v v01024028_0, 8, 2;
+    %delay 10000, 0;
+    %vpi_call 2 82 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 2, 5;
+    %jmp/0xz  T_1.8, 4;
+    %vpi_call 2 85 "$display", "Case 5 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.9;
+T_1.8 ;
+    %vpi_call 2 89 "$display", "Case 5 is failed";
+T_1.9 ;
+    %movi 8, 2, 2;
+    %set/v v01023B00_0, 8, 2;
+    %movi 8, 2, 2;
+    %set/v v01024028_0, 8, 2;
+    %delay 10000, 0;
+    %vpi_call 2 95 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 4, 5;
+    %jmp/0xz  T_1.10, 4;
+    %vpi_call 2 98 "$display", "Case 6 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.11;
+T_1.10 ;
+    %vpi_call 2 102 "$display", "Case 6 is failed";
+T_1.11 ;
+    %movi 8, 2, 2;
+    %set/v v01023B00_0, 8, 2;
+    %set/v v01024028_0, 1, 2;
+    %delay 10000, 0;
+    %vpi_call 2 108 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 6, 5;
+    %jmp/0xz  T_1.12, 4;
+    %vpi_call 2 111 "$display", "Case 7 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.13;
+T_1.12 ;
+    %vpi_call 2 115 "$display", "Case 7 is failed";
+T_1.13 ;
+    %set/v v01023B00_0, 1, 2;
+    %movi 8, 1, 2;
+    %set/v v01024028_0, 8, 2;
+    %delay 10000, 0;
+    %vpi_call 2 121 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 3, 5;
+    %jmp/0xz  T_1.14, 4;
+    %vpi_call 2 124 "$display", "Case 8 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.15;
+T_1.14 ;
+    %vpi_call 2 128 "$display", "Case 8 is failed";
+T_1.15 ;
+    %set/v v01023B00_0, 1, 2;
+    %movi 8, 2, 2;
+    %set/v v01024028_0, 8, 2;
+    %delay 10000, 0;
+    %vpi_call 2 134 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 6, 5;
+    %jmp/0xz  T_1.16, 4;
+    %vpi_call 2 137 "$display", "Case 9 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.17;
+T_1.16 ;
+    %vpi_call 2 141 "$display", "Case 9 is failed";
+T_1.17 ;
+    %set/v v01023B00_0, 1, 2;
+    %set/v v01024028_0, 1, 2;
+    %delay 10000, 0;
+    %vpi_call 2 147 "$display", "in1 = %b, in2 = %b, out = %b", v01023B00_0, v01024028_0, v010241E0_0;
+    %delay 10000, 0;
+    %load/v 8, v010241E0_0, 4;
+    %mov 12, 0, 1;
+    %cmpi/u 8, 9, 5;
+    %jmp/0xz  T_1.18, 4;
+    %vpi_call 2 150 "$display", "Case 10 is passed";
+    %load/v 8, v010240D8_0, 4;
+    %mov 12, 0, 28;
+    %addi 8, 1, 32;
+    %set/v v010240D8_0, 8, 4;
+    %jmp T_1.19;
+T_1.18 ;
+    %vpi_call 2 154 "$display", "Case 10 is failed";
+T_1.19 ;
+    %vpi_call 2 158 "$display", "Total score: %d", v010240D8_0;
+    %end;
+    .thread T_1;
+    .scope S_00FDF048;
+T_2 ;
+    %vpi_call 2 163 "$dumpfile", "tb_mul2b.vcd";
+    %vpi_call 2 164 "$dumpvars";
+    %end;
+    .thread T_2;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "tb_mul2b.v";
+    "mul2b.v";
+    "fa1b.v";
